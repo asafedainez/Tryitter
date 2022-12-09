@@ -1,0 +1,11 @@
+﻿version: '3'
+
+services:
+    db-mysql:
+      container_name: db-mysql
+      image: mcr.microsoft.com/mssql/server:2022-latest
+      ports:
+        - 1433:1433
+      environment:
+          - SA_PASSWORD=myPassword!
+          - ACCEPT_EULA=Y
