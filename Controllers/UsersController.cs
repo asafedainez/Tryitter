@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tryitter.Context;
 using Tryitter.Models;
@@ -18,6 +19,7 @@ namespace Tryitter.Controllers
 
         // GET: api/Users
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<UserOutput>>> GetUsers()
         {
             var usersDb = await _context.Users.ToListAsync();
@@ -37,6 +39,7 @@ namespace Tryitter.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}", Name = "GetUser")]
+        [Authorize]
         public async Task<ActionResult<UserOutput>> GetUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -52,6 +55,7 @@ namespace Tryitter.Controllers
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutUser(int id, UserInput userInput)
         {
             if (!UserExists(id))
@@ -77,6 +81,7 @@ namespace Tryitter.Controllers
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<UserOutput>> PostUser(UserInput userInput)
         {
             var existsEmail = _context.Users.Any(e => e.Email == userInput.Email);
@@ -96,6 +101,7 @@ namespace Tryitter.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
