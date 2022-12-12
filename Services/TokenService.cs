@@ -8,7 +8,7 @@ namespace Tryitter.Services
 {
     public class TokenService : ITokenService
     {
-        public string GenerateToken(string key, string issuer, UserModel user)
+        public string GenerateToken(string key, string issuer, User user)
         {
             var claims = new[]
             {

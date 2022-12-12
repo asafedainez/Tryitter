@@ -12,8 +12,8 @@ using Tryitter.Context;
 namespace Tryitter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221209224556_seedDatabase")]
-    partial class seedDatabase
+    [Migration("20221212201726_seed")]
+    partial class seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

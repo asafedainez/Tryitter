@@ -15,7 +15,7 @@ namespace Tryitter.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         [StringLength(90)]
@@ -27,7 +27,7 @@ namespace Tryitter.Models
 
         [Required]
         [StringLength(20)]
-        public string? Email { get; init; }
+        public string? Email { get; set; }
 
         [Required]
         [StringLength(300)]
