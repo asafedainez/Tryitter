@@ -34,7 +34,7 @@ namespace Tryitter.Controllers
                     }
                 });
 
-            return users;
+            return users.Count > 0 ? Ok(users) : NoContent();
         }
 
         // GET: api/Users/5
@@ -107,28 +107,13 @@ namespace Tryitter.Controllers
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
             user.IsDeleted = true;
 
             _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }
