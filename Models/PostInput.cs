@@ -13,7 +13,6 @@
                 Content = Content,
                 ImageUrl = ImageUrl,
                 UserId = UserId,
-                UpdatedDate = DateTime.Now,
                 CreatedDate = DateTime.Now,
                 IsDeleted = false
             };

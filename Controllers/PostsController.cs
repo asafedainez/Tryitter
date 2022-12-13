@@ -51,7 +51,6 @@ namespace Tryitter.Controllers
         {
             Post postUpdated = postInput.ToInput();
             postUpdated.Id = id;
-            postUpdated.UpdatedDate = DateTime.Now;
 
             _context.Entry(postUpdated).State = EntityState.Modified;
 

@@ -12,8 +12,8 @@ using Tryitter.Context;
 namespace Tryitter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221212201726_seed")]
-    partial class seed
+    [Migration("20221213182237_seedDatabase")]
+    partial class seedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,10 +48,6 @@ namespace Tryitter.Migrations
                     b.Property<bool?>("IsDeleted")
                         .IsRequired()
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

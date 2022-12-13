@@ -14,9 +14,6 @@ namespace Tryitter.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedDate { get; init; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime UpdatedDate { get; set; }
-
         [Required]
         [StringLength(300)]
         public string? Content { get; set; }

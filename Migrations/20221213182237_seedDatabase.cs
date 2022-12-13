@@ -4,7 +4,7 @@
 
 namespace Tryitter.Migrations
 {
-    public partial class seed : Migration
+    public partial class seedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,11 +20,11 @@ namespace Tryitter.Migrations
 
             migrationBuilder.InsertData(
                 table: "Posts",
-                columns: new[] { "Id", "Content", "ImageUrl", "UserId", "IsDeleted", "CreatedDate", "UpdatedDate" },
+                columns: new[] { "Id", "Content", "ImageUrl", "UserId", "IsDeleted", "CreatedDate" },
                 values: new object[,]
                 {
-                    {1, "Eu sou um post do User Test1", "imagem.png", 1, false, DateTime.Now, DateTime.Now },
-                    {2, "Eu sou um post do User Test2", "imagem.png", 2, false, DateTime.Now, DateTime.Now },
+                    {1, "Eu sou um post do User Test1", "imagem.png", 1, false, DateTime.Now },
+                    {2, "Eu sou um post do User Test2", "imagem.png", 2, false, DateTime.Now },
                 }
              );
         }
